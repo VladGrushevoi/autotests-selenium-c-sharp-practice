@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Threading.Tasks;
 using OpenQA.Selenium;
 
 namespace nunit_selenium
@@ -23,7 +24,7 @@ namespace nunit_selenium
 
                 if (parts.Length != 2)
                     continue;
-                System.Console.WriteLine(parts[1]);
+
                 Environment.SetEnvironmentVariable(parts[0], parts[1]);
             }
         }
@@ -37,7 +38,7 @@ namespace nunit_selenium
             return driver.FindElement(By.XPath(xPath));
         }
 
-        public string GetValueFromElement(IWebDriver driver, string xPath)
+        public string GetTextFromElement(IWebDriver driver, string xPath)
         {
             return driver.FindElement(By.XPath(xPath)).Text;
         }

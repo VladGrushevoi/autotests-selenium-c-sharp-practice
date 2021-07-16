@@ -22,8 +22,6 @@ namespace Linkedin
             _driver.FindElement(passInputButton).SendKeys(pass);
             _driver.FindElement(loginButton).Click();
 
-            Thread.Sleep(500);
-
             return new LinkedinMainPageObject(_driver);
         }
     }

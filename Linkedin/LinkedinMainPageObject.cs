@@ -1,5 +1,6 @@
 using System.Threading;
 using OpenQA.Selenium;
+using Utils;
 
 namespace Linkedin
 {
@@ -16,8 +17,8 @@ namespace Linkedin
 
         public ProfileLinkedinPageObject ClickOnProfilePage()
         {
+            //WaiterElement.WaitElement(_driver, profileButton);
             _driver.FindElement(profileButton).Click();
-            Thread.Sleep(500);
 
             return new ProfileLinkedinPageObject(_driver);
         }

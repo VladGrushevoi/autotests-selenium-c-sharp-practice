@@ -1,5 +1,6 @@
 using System.Threading;
 using OpenQA.Selenium;
+using Utils;
 
 namespace Spotify
 {
@@ -19,10 +20,12 @@ namespace Spotify
 
         public UserMainSpotifyPageObject Login(string email, string pass)
         {
+            WaiterElement.WaitElement(_driver, emailInputButton);
+            WaiterElement.WaitElement(_driver, loginButton);
+            
             _driver.FindElement(emailInputButton).SendKeys(email);
             _driver.FindElement(passInputButton).SendKeys(pass);
             _driver.FindElement(loginButton).Click();
-            Thread.Sleep(1500);
 
             return new UserMainSpotifyPageObject(_driver);
         }

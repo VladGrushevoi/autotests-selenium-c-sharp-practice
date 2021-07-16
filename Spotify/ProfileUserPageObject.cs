@@ -1,4 +1,5 @@
 using OpenQA.Selenium;
+using Utils;
 
 namespace Spotify
 {
@@ -15,6 +16,7 @@ namespace Spotify
 
         public string GetUserNameText()
         {
+            WaiterElement.WaitElement(_driver, userNameText);
             return _driver.FindElement(userNameText).Text;
         }
     }

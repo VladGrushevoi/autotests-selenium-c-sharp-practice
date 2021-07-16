@@ -1,4 +1,5 @@
 using OpenQA.Selenium;
+using Utils;
 
 namespace Linkedin
 {
@@ -15,6 +16,7 @@ namespace Linkedin
 
         public string GetUserNameOnProfilePage()
         {
+            WaiterElement.WaitElement(_driver, userNameProfile);
             return _driver.FindElement(userNameProfile).Text;
         }
     }

@@ -1,5 +1,6 @@
 using System.Threading;
 using OpenQA.Selenium;
+using Utils;
 
 namespace Spotify
 {
@@ -17,11 +18,11 @@ namespace Spotify
 
         public ProfileUserPageObject ClickOnUserProfile()
         {
+            WaiterElement.WaitElement(_driver, profileButton);
             _driver.FindElement(profileButton).Click();
-            Thread.Sleep(1500);
 
+            WaiterElement.WaitElement(_driver, profileClick);
             _driver.FindElement(profileClick).Click();
-            Thread.Sleep(1500);
 
             return new ProfileUserPageObject(_driver);
         }
